@@ -127,7 +127,7 @@
     const avatar = document.createElement("div");
     avatar.className = "avatar";
     const image = document.createElement("img");
-    image.src = "/assets/dove.png";
+    image.src = "/assets/01-golden-dove-logo.png";
     image.alt = "";
     avatar.appendChild(image);
     return avatar;

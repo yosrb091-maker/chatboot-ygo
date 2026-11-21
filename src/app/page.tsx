@@ -11,43 +11,54 @@ export default function HomePage() {
     <main className="page">
       {/* Les éléments du décor sont indépendants de l'interface. */}
       <div className="scenery" aria-hidden="true">
-        <div className="world-globe" />
+        {/* Globe et nuages : derrière le grand titre. */}
+        <img className="hero-globe" src="/assets/02-blue-globe-clouds.png" alt="" />
         <div className="cloud-wash cloud-wash--left" />
         <div className="cloud-wash cloud-wash--right" />
-        <img className="olive-clouds olive-clouds--left" src="/assets/olive-branch-clouds.png" alt="" />
-        <img className="olive-clouds olive-clouds--right" src="/assets/olive-branch-clouds.png" alt="" />
+        <img className="decor-cloud decor-cloud--left" src="/assets/07-decorative-clouds.png" alt="" />
+        <img className="decor-cloud decor-cloud--right" src="/assets/07-decorative-clouds.png" alt="" />
 
+        {/* Lignes de voyage en pointillés. */}
         <svg className="travel-route travel-route--top" viewBox="0 0 1440 280" preserveAspectRatio="none">
           <path d="M 47 183 C 205 238, 300 151, 401 94 S 541 70, 598 83" />
           <path d="M 874 169 C 1020 240, 1054 147, 1117 128 S 1160 123, 1184 103" />
         </svg>
-        <svg className="travel-route travel-route--bottom" viewBox="0 0 360 160" fill="none">
-          <path d="M 16 145 C -5 112, 31 83, 64 95 S 103 141, 140 112 S 183 63, 220 85 S 286 45, 348 51" />
-        </svg>
-        <svg className="scene-sparkle scene-sparkle--one" viewBox="0 0 32 45" fill="none">
-          <path d="M16 0C17.5 12 20 18 32 20C20 22 17.5 28 16 45C14.5 28 12 22 0 20C12 18 14.5 12 16 0Z" fill="currentColor" />
-        </svg>
-        <svg className="scene-sparkle scene-sparkle--two" viewBox="0 0 32 45" fill="none">
-          <path d="M16 0C17.5 12 20 18 32 20C20 22 17.5 28 16 45C14.5 28 12 22 0 20C12 18 14.5 12 16 0Z" fill="currentColor" />
-        </svg>
-        <svg className="scene-sparkle scene-sparkle--three" viewBox="0 0 32 45" fill="none">
-          <path d="M16 0C17.5 12 20 18 32 20C20 22 17.5 28 16 45C14.5 28 12 22 0 20C12 18 14.5 12 16 0Z" fill="currentColor" />
-        </svg>
 
-        <img className="decor-airplane" src="/assets/vintage-airplane.png" alt="" />
-        <figure className="flight-postcard">
+        {/* Étoiles dorées. */}
+        <img className="decor-stars" src="/assets/11-golden-stars.png" alt="" />
+
+        {/* Avion vintage en haut à droite. */}
+        <img className="decor-airplane" src="/assets/04-vintage-airplane.png" alt="" />
+
+        {/* Polaroid 1 (gauche) : l'aile d'avion. */}
+        <figure className="polaroid polaroid--wing">
           <span className="postcard-tape" />
-          <img src="/assets/airplane-window.jpg" alt="" />
+          <div className="polaroid-photo">
+            <img src="/assets/13-airplane-wing-photo.jpg" alt="" />
+          </div>
         </figure>
-        <img className="decor-postcards" src="/assets/travel-postcards.png" alt="" />
-        <img className="decor-map" src="/assets/folded-travel-map.png" alt="" />
-        <img className="decor-suitcase" src="/assets/vintage-suitcase.png" alt="" />
 
-        <svg className="map-pin" viewBox="0 0 48 66" fill="none">
-          <path d="M24 59S7 39 7 25a17 17 0 1 1 34 0C41 39 24 59 24 59Z" stroke="currentColor" strokeWidth="5" />
-          <circle cx="24" cy="25" r="7" stroke="currentColor" strokeWidth="4" />
-          <path d="M14 64c6-3 14-3 20 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
+        {/* Polaroid 2 (haut droite) : Santorin. Le ciel est dessiné en CSS derrière la photo détourée. */}
+        <figure className="polaroid polaroid--santorini">
+          <span className="postcard-tape" />
+          <div className="polaroid-photo polaroid-photo--santorini">
+            <img src="/assets/09-santorini-photo.png" alt="" />
+          </div>
+        </figure>
+
+        {/* Polaroid 3 (bas droite) : tour Eiffel. */}
+        <figure className="polaroid polaroid--eiffel">
+          <span className="postcard-tape" />
+          <div className="polaroid-photo polaroid-photo--eiffel">
+            <img src="/assets/10-eiffel-photo.png" alt="" />
+          </div>
+        </figure>
+
+        {/* Carte, valise, trajet avec épingle. */}
+        <img className="decor-map" src="/assets/05-folded-travel-map.png" alt="" />
+        <img className="decor-suitcase" src="/assets/03-vintage-suitcase.png" alt="" />
+        <img className="decor-flight-path" src="/assets/12-flight-path-pin.png" alt="" />
+
         <svg className="bottom-waves" viewBox="0 0 1440 190" preserveAspectRatio="none">
           <path d="M0 49 C180 -3 269 43 392 105 C516 168 616 187 770 133 C920 80 1017 125 1150 145 C1277 166 1338 54 1440 63 L1440 190 L0 190Z" fill="#FFEEB9" />
           <path d="M0 117 C156 24 235 53 359 115 C500 186 584 180 747 139 C907 98 1043 120 1168 155 C1275 185 1360 121 1440 114 L1440 190 L0 190Z" fill="#BCD1DE" />
@@ -64,7 +75,7 @@ export default function HomePage() {
 
       <div className="page-content">
         <header className="brand" aria-label="YGO, assistant intelligent">
-          <img className="brand-dove" src="/assets/ygo-original-dove-logo.png" alt="Colombe dorée portant une branche d’olivier" />
+          <img className="brand-dove" src="/assets/01-golden-dove-logo.png" alt="Colombe dorée portant une branche d’olivier" />
           <div className="brand-lockup">
             <span className="brand-line" />
             <span className="brand-name">YGO</span>
@@ -79,7 +90,7 @@ export default function HomePage() {
             <em>commençaient par une question ?</em>
           </h1>
           <p className="hero-subtitle">
-            Votre <strong>assistant intelligent</strong> pour découvrir, organiser<br className="desktop-break" />
+            Votre <strong>assistant intelligent</strong> pour découvrir, organiser{" "}<br className="desktop-break" />
             et planifier vos <strong>prochaines aventures.</strong>
             <svg className="hero-heart" viewBox="0 0 30 30" fill="none" aria-hidden="true">
               <path d="M14.4 25.8C12.3 22.9 4.3 16.2 4.3 10.3C4.3 6.9 6.5 5.3 8.6 5.7C11.1 6.2 12.5 8.7 13.2 11C15 7.8 17.3 6.1 19.6 6.6C22.1 7.2 23 9.3 22.2 11.9C21.2 15.4 18.5 20.3 14.4 25.8Z" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" />
@@ -97,7 +108,7 @@ export default function HomePage() {
 
           <div className="conversation" id="conversation" aria-live="polite" aria-relevant="additions">
             <div className="message message--assistant welcome-message">
-              <div className="avatar"><img src="/assets/dove.png" alt="" /></div>
+              <div className="avatar"><img src="/assets/01-golden-dove-logo.png" alt="" /></div>
               <div className="message-bubble welcome-bubble" dir="auto">
                 <h2>Bonjour ! Je suis YGO <span className="greeting-sparkle">✦</span></h2>
                 <p>Je suis votre assistant intelligent. Posez-moi toutes vos questions ou laissez-moi vous aider à planifier votre prochain voyage.</p>
@@ -143,7 +154,7 @@ export default function HomePage() {
           Prix et disponibilités à vérifier <span className="footer-separator">·</span> Imaginé avec <span className="footer-heart" aria-label="amour">♡</span> par Yosr &amp; Ghofran <span className="footer-separator">·</span> Propulsé par Gemini
         </footer>
       </div>
-      <Script src="/script.js?v=2" strategy="afterInteractive" />
+      <Script src="/script.js?v=3" strategy="afterInteractive" />
     </main>
   );
 }

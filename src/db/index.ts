@@ -1,11 +1,12 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 
-const databaseUrl = process.env.DATABASE_URL;
-
-if (!databaseUrl) {
-  throw new Error("DATABASE_URL is required");
-}
+// YGO n'utilise pas la base de données pour le chat : elle ne sert qu'à la
+// vérification de santé. On ne bloque donc plus le démarrage ni le build si
+// DATABASE_URL est absente (par exemple sur Vercel). Le Pool ne se connecte
+// qu'au moment où une requête est réellement envoyée.
+const databaseUrl =
+  process.env.DATABASE_URL ?? "postgresql://postgres:postgres@127.0.0.1:5432/app_db";
 
 const globalForDb = globalThis as typeof globalThis & {
   __arenaNextJsPostgresqlPool?: Pool;
