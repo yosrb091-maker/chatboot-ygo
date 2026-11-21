@@ -1,0 +1,18 @@
+# Dépendances et fichiers générés
+node_modules/
+.next/
+out/
+build/
+coverage/
+*.log
+*.tsbuildinfo
+
+# Secrets : ne jamais publier ces fichiers
+.env
+.env.local
+.env.*.local
+.env.*
+!.env.example
+
+# Fichiers locaux
+.DS_Store
