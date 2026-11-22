@@ -11,8 +11,6 @@ export default function HomePage() {
     <main className="page">
       {/* Les éléments du décor sont indépendants de l'interface. */}
       <div className="scenery" aria-hidden="true">
-        {/* Globe et nuages : derrière le grand titre. */}
-        <img className="hero-globe" src="/assets/02-blue-globe-clouds.png" alt="" />
         <div className="cloud-wash cloud-wash--left" />
         <div className="cloud-wash cloud-wash--right" />
         <img className="decor-cloud decor-cloud--left" src="/assets/07-decorative-clouds.png" alt="" />
@@ -76,6 +74,8 @@ export default function HomePage() {
       <div className="page-content">
         <header className="brand" aria-label="YGO, assistant intelligent">
           <img className="brand-dove" src="/assets/01-golden-dove-logo.png" alt="Colombe dorée portant une branche d’olivier" />
+          {/* Globe au centre, sous la colombe et au-dessus du chat. */}
+          <img className="brand-globe" src="/assets/02-blue-globe-clouds.png" alt="" aria-hidden="true" />
           <div className="brand-lockup">
             <span className="brand-line" />
             <span className="brand-name">YGO</span>

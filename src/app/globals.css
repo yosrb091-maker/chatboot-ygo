@@ -53,19 +53,8 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--powder-b
     var(--vanilla);
 }
 .scenery { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; }
-.world-globe {
-  position: absolute;
-  top: -7px;
-  left: 50%;
-  width: min(2300px, 150vw);
-  height: min(920px, 78vw);
-  transform: translateX(-50%);
-  background: url("/assets/world-globe.png") center top / 100% auto no-repeat;
-  mix-blend-mode: multiply;
-  opacity: .58;
-  -webkit-mask-image: radial-gradient(ellipse 48% 47% at 50% 34%, #000 20%, transparent 76%);
-  mask-image: radial-gradient(ellipse 48% 47% at 50% 34%, #000 20%, transparent 76%);
-}
+
+/* Nuages de fond. */
 .cloud-wash { position: absolute; width: 500px; height: 360px; opacity: .7; filter: blur(2px); }
 .cloud-wash--left {
   left: -195px; top: 30%;
@@ -75,29 +64,34 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--powder-b
   right: -170px; top: 31%;
   background: radial-gradient(ellipse at 60% 36%, #FFF8E2 0 20%, transparent 44%), radial-gradient(ellipse at 40% 69%, #FFEEB9 0 15%, transparent 42%);
 }
-.olive-clouds { position: absolute; width: 390px; mix-blend-mode: multiply; opacity: .42; -webkit-mask-image: radial-gradient(ellipse, #000 23%, transparent 72%); mask-image: radial-gradient(ellipse, #000 23%, transparent 72%); }
-.olive-clouds--left { left: -90px; bottom: 9%; transform: rotate(-10deg); }
-.olive-clouds--right { right: -100px; top: 25%; transform: scaleX(-1); opacity: .28; }
+.decor-cloud { position: absolute; width: clamp(220px, 22vw, 340px); height: auto; }
+.decor-cloud--left { left: -70px; bottom: 24%; opacity: .7; }
+.decor-cloud--right { right: -80px; top: 40%; opacity: .55; transform: scaleX(-1); }
+
+/* Lignes en pointillés, étoiles et avion. */
 .travel-route { position: absolute; overflow: visible; }
 .travel-route path { stroke: #a77b50; stroke-width: 1.5; stroke-dasharray: 7 9; stroke-linecap: round; fill: none; opacity: .75; }
 .travel-route--top { top: 5.5%; left: 0; width: 100%; height: 235px; }
-.travel-route--bottom { bottom: 5%; right: -10px; width: min(300px, 24vw); height: auto; }
-.scene-sparkle { position: absolute; color: #d8a45b; filter: drop-shadow(0 2px 3px rgba(181, 120, 56, .12)); }
-.scene-sparkle--one { width: 35px; top: 9%; left: 15.5%; }
-.scene-sparkle--two { width: 19px; top: 14%; left: 19%; }
-.scene-sparkle--three { width: 33px; top: 21%; right: 14.5%; }
-.decor-airplane { position: absolute; width: clamp(72px, 6.5vw, 110px); height: auto; top: 12.2%; right: 17%; transform: rotate(-11deg); }
-.flight-postcard {
-  position: absolute; top: 26%; left: 3.2%; width: clamp(158px, 14vw, 231px);
-  margin: 0; padding: 10px 10px 30px; transform: rotate(-12deg);
-  background: #fff9ec; box-shadow: 0 13px 22px rgba(94, 68, 46, .22), 0 2px 5px rgba(94, 68, 46, .1);
-}
-.flight-postcard img { display: block; width: 100%; aspect-ratio: 3 / 3.55; object-fit: cover; }
-.postcard-tape { position: absolute; z-index: 1; top: -10px; left: 34%; width: 32%; height: 23px; background: rgba(231, 197, 139, .66); transform: rotate(9deg); clip-path: polygon(3% 2%, 100% 0, 95% 100%, 0 94%); }
-.decor-postcards { position: absolute; top: 22.5%; right: 1%; width: clamp(185px, 16vw, 275px); height: auto; filter: drop-shadow(0 6px 7px rgba(94, 68, 46, .12)); }
-.decor-map { position: absolute; bottom: 13%; left: 13.8%; width: clamp(80px, 9vw, 140px); transform: rotate(-18deg); opacity: .68; }
-.decor-suitcase { position: absolute; z-index: 1; left: .4%; bottom: -.5%; width: clamp(185px, 18.5vw, 300px); height: auto; filter: drop-shadow(0 13px 9px rgba(94, 68, 46, .12)); }
-.map-pin { position: absolute; color: var(--walnut); bottom: 12%; right: 7%; width: 42px; transform: rotate(9deg); }
+.decor-stars { position: absolute; top: 9%; left: 16%; width: clamp(54px, 5vw, 80px); height: auto; }
+.decor-airplane { position: absolute; top: 6%; right: 17%; width: clamp(90px, 8.5vw, 135px); height: auto; filter: drop-shadow(0 6px 6px rgba(94, 68, 46, .12)); }
+
+/* Photos Polaroid : cadre crème, ruban adhésif, légère rotation. */
+.polaroid { position: absolute; margin: 0; padding: 7px 7px 26px; background: #fff9ec; box-shadow: 0 13px 22px rgba(94, 68, 46, .22), 0 2px 5px rgba(94, 68, 46, .1); }
+.polaroid-photo { overflow: hidden; aspect-ratio: 4 / 5; background: var(--powder-blue); }
+.polaroid-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.polaroid-photo--santorini { background: linear-gradient(180deg, #98bcd6 0%, #cfe0ea 48%, #fbe6c0 100%); }
+.polaroid-photo--santorini img { object-position: 30% bottom; }
+.polaroid-photo--eiffel { background: linear-gradient(180deg, #bcd1de 0%, #f6dfc4 62%, #f1c99d 100%); }
+.polaroid-photo--eiffel img { object-position: center bottom; }
+.postcard-tape { position: absolute; z-index: 1; top: -10px; left: 34%; width: 32%; height: 22px; background: rgba(231, 197, 139, .72); transform: rotate(7deg); clip-path: polygon(3% 2%, 100% 0, 95% 100%, 0 94%); }
+.polaroid--wing { top: 28%; left: .8%; width: clamp(130px, 12.8vw, 205px); transform: rotate(-9deg); }
+.polaroid--santorini { top: 13%; right: 2%; width: clamp(120px, 12.2vw, 190px); transform: rotate(7deg); }
+.polaroid--eiffel { bottom: 17%; right: 1.6%; width: clamp(115px, 11.6vw, 180px); transform: rotate(-6deg); }
+
+/* Carte, valise et trajet avec épingle, en bas. */
+.decor-map { position: absolute; z-index: 1; bottom: 1.5%; left: 17%; width: clamp(90px, 8vw, 125px); height: auto; transform: rotate(-12deg); opacity: .85; }
+.decor-suitcase { position: absolute; z-index: 1; left: .5%; bottom: 2.5%; width: clamp(150px, 15vw, 225px); height: auto; filter: drop-shadow(0 13px 9px rgba(94, 68, 46, .14)); }
+.decor-flight-path { position: absolute; z-index: 1; right: 1%; bottom: 3%; width: clamp(200px, 20vw, 300px); height: auto; opacity: .9; }
 .bottom-waves { position: absolute; bottom: 0; left: 0; width: 100%; height: clamp(110px, 17vh, 180px); }
 
 /* En-tête et grand titre. */
@@ -111,7 +105,9 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--powder-b
 .availability-dot { width: 7px; height: 7px; border-radius: 50%; background: #899f98; box-shadow: 0 0 0 3px rgba(137, 159, 152, .14); }
 .availability-dot--waiting { background: #c39d67; box-shadow: 0 0 0 3px rgba(195, 157, 103, .16); }
 .brand { display: flex; align-items: center; flex-direction: column; text-align: center; }
-.brand-dove { display: block; width: clamp(158px, 13vw, 205px); height: clamp(112px, 15.6vh, 157px); object-fit: contain; filter: drop-shadow(0 4px 3px rgba(94, 68, 46, .12)); }
+.brand-dove { display: block; width: clamp(105px, 8.6vw, 125px); height: auto; position: relative; z-index: 1; filter: drop-shadow(0 4px 3px rgba(94, 68, 46, .12)); }
+/* Globe central : sous la colombe, sans toucher YGO ni le titre. */
+.brand-globe { display: block; position: relative; z-index: 0; width: clamp(180px, 15vw, 240px); height: auto; margin-top: calc(-1 * clamp(24px, 2.2vw, 34px)); margin-bottom: clamp(2px, .6vh, 8px); filter: drop-shadow(0 10px 14px rgba(94, 68, 46, .14)); }
 .brand-lockup { display: flex; align-items: center; gap: 22px; margin-top: -2px; }
 .brand-line { position: relative; display: block; width: clamp(65px, 9vw, 150px); height: 1px; background: linear-gradient(90deg, transparent, var(--walnut)); }
 .brand-line:last-child { transform: rotate(180deg); }
@@ -130,7 +126,7 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--powder-b
 
 /* Panneau de conversation en verre dépoli. */
 .chat-card {
-  position: relative; width: min(1035px, calc(100vw - 36px)); margin-top: clamp(15px, 2vh, 22px); padding: 20px;
+  position: relative; width: min(980px, calc(100vw - 27vw)); margin-top: clamp(15px, 2vh, 22px); padding: 20px;
   border: 2px solid rgba(255, 255, 255, .74); border-radius: 38px;
   background: rgba(255, 250, 244, .51); box-shadow: 0 18px 28px rgba(94, 68, 46, .18), 0 4px 7px rgba(94, 68, 46, .06), inset 0 1px 10px rgba(255, 255, 255, .55);
   -webkit-backdrop-filter: blur(21px); backdrop-filter: blur(21px);
@@ -198,16 +194,16 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--powder-b
 @keyframes bounce { 0%, 70%, 100% { transform: translateY(0); opacity: .5; } 35% { transform: translateY(-4px); opacity: 1; } }
 
 @media (max-width: 1100px) {
-  .flight-postcard { left: -25px; width: 155px; opacity: .9; }
-  .decor-postcards { right: -20px; width: 170px; }
-  .decor-suitcase { left: -12px; width: 195px; }
-  .decor-map { left: 9%; }
-  .chat-card { width: min(940px, calc(100vw - 110px)); }
+  .polaroid--wing { left: -34px; width: 135px; opacity: .92; }
+  .polaroid--santorini { right: -30px; width: 130px; opacity: .92; }
+  .polaroid--eiffel, .decor-flight-path, .decor-map, .decor-stars { display: none; }
+  .decor-suitcase { left: -18px; width: 160px; }
+  .chat-card { width: min(940px, calc(100vw - 70px)); }
   .suggestions { margin-left: 0; margin-right: 0; gap: 7px; }
   .suggestion { padding-inline: 8px; font-size: 13px; }
 }
 @media (max-height: 800px) and (min-width: 701px) {
-  .brand-dove { height: 105px; width: 160px; }
+  .brand-globe { width: clamp(150px, 12vw, 190px); }
   .brand-name { font-size: 63px; }
   .brand-tagline { margin-top: 7px; }
   .hero { margin-top: 18px; }
@@ -227,27 +223,19 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid var(--powder-b
   .page-content { padding: 12px 14px 65px; }
   .availability { top: 12px; right: 12px; padding: 6px 8px; font-size: 9px; }
   .availability-dot { width: 6px; height: 6px; }
-  .world-globe { width: 900px; height: 530px; top: 38px; opacity: .52; }
   .cloud-wash { width: 260px; height: 250px; }
   .cloud-wash--left { left: -150px; top: 29%; }
   .cloud-wash--right { right: -150px; top: 30%; }
-  .olive-clouds { width: 210px; opacity: .25; }
-  .olive-clouds--left { left: -95px; bottom: 4%; }
-  .olive-clouds--right { right: -100px; top: 27%; }
+  .decor-cloud { width: 170px; }
+  .decor-cloud--left { left: -70px; bottom: 5%; opacity: .55; }
+  .decor-cloud--right { right: -80px; top: 28%; opacity: .4; }
   .travel-route--top { top: 35px; height: 140px; width: 125%; left: -12%; opacity: .7; }
-  .travel-route--bottom { width: 160px; bottom: 4%; }
-  .scene-sparkle--one { width: 18px; left: 8%; top: 9%; }
-  .scene-sparkle--two { width: 12px; left: 13%; top: 14%; }
-  .scene-sparkle--three { width: 19px; right: 7%; top: 20%; }
-  .decor-airplane { width: 55px; right: 8%; top: 15%; }
-  .flight-postcard { top: 26%; left: -52px; width: 105px; padding: 6px 6px 18px; opacity: .52; }
-  .postcard-tape { height: 12px; top: -5px; }
-  .decor-postcards { top: 29%; right: -48px; width: 118px; opacity: .55; }
-  .decor-map { left: 13%; bottom: 7%; width: 75px; opacity: .5; }
-  .decor-suitcase { left: -30px; bottom: -12px; width: 115px; opacity: .83; }
-  .map-pin { right: 7%; bottom: 8%; width: 25px; }
+  .polaroid, .decor-stars, .decor-map, .decor-flight-path { display: none; }
+  .decor-airplane { width: 58px; left: 3%; right: auto; top: 76px; }
+  .decor-suitcase { left: -22px; bottom: -6px; width: 105px; opacity: .85; }
   .bottom-waves { height: 95px; }
-  .brand-dove { width: 130px; height: 98px; }
+  .brand-dove { width: 100px; }
+  .brand-globe { width: 170px; margin-top: -22px; margin-bottom: 0; }
   .brand-lockup { gap: 13px; margin-top: -1px; }
   .brand-line { width: 55px; }
   .brand-name { font-size: 59px; }
